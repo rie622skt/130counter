@@ -46,16 +46,17 @@ export default function SettingsScreen() {
         <Pressable
           onPress={() => router.back()}
           accessibilityRole="button"
-          accessibilityLabel="とじる"
+          accessibilityLabel="閉じる"
+          hitSlop={12}
           style={styles.close}>
-          <Text style={[type.bodyMd, styles.closeText]}>とじる</Text>
+          <Text style={[type.bodyMd, styles.closeText]}>閉じる</Text>
         </Pressable>
       </View>
 
-      {/* かべの金額 */}
-      <Text style={[type.displayLg, styles.title]}>かべの金額</Text>
+      {/* 壁の金額 */}
+      <Text style={[type.displayLg, styles.title]}>壁の金額</Text>
       <Text style={[type.caption, styles.help]}>
-        いま設定中：{formatMan(e.data.thresholdYen)}（{formatYen(e.data.thresholdYen)}）
+        現在の設定：{formatMan(e.data.thresholdYen)}（{formatYen(e.data.thresholdYen)}）
       </Text>
       <View style={styles.presets}>
         {PRESETS.map((p) => {
@@ -78,7 +79,7 @@ export default function SettingsScreen() {
         })}
       </View>
 
-      <Text style={[type.caption, styles.help]}>そのほかの金額にする</Text>
+      <Text style={[type.caption, styles.help]}>その他の金額を設定する</Text>
       <View style={styles.row}>
         <View style={styles.inputWrap}>
           <Text style={[type.bodyMd, styles.yenMark]}>￥</Text>
@@ -93,7 +94,7 @@ export default function SettingsScreen() {
             accessibilityLabel="かべの金額（円）"
           />
         </View>
-        <PillButton label="てきよう" onPress={applyCustom} style={styles.applyBtn} />
+        <PillButton label="適用" onPress={applyCustom} style={styles.applyBtn} />
       </View>
 
       {/* 年 */}
@@ -124,17 +125,17 @@ export default function SettingsScreen() {
           accessibilityRole="button"
           style={styles.resetBtn}>
           <Text style={[type.bodyMdStrong, styles.resetText]}>
-            入力した収入をぜんぶ消す
+            入力した収入をすべて削除
           </Text>
         </Pressable>
       ) : (
         <View style={styles.confirmBox}>
           <Text style={[type.bodyMd, styles.confirmText]}>
-            ほんとうに消しますか？この操作はもとに戻せません。
+            本当に削除しますか？この操作は元に戻せません。
           </Text>
           <View style={styles.confirmActions}>
             <PillButton
-              label="けす"
+              label="削除する"
               onPress={() => {
                 e.reset();
                 setConfirmReset(false);
@@ -145,7 +146,7 @@ export default function SettingsScreen() {
               onPress={() => setConfirmReset(false)}
               accessibilityRole="button"
               style={styles.cancelBtn}>
-              <Text style={[type.caption, styles.cancelText]}>やめる</Text>
+              <Text style={[type.caption, styles.cancelText]}>キャンセル</Text>
             </Pressable>
           </View>
         </View>

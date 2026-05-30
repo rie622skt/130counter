@@ -44,13 +44,14 @@ export default function AddScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={[styles.content, { paddingTop: insets.top + space.lg }]}>
         <View style={styles.header}>
-          <Eyebrow>収入のにゅうりょく</Eyebrow>
+          <Eyebrow>収入の入力</Eyebrow>
           <Pressable
             onPress={() => router.back()}
             accessibilityRole="button"
-            accessibilityLabel="とじる"
+            accessibilityLabel="閉じる"
+            hitSlop={12}
             style={styles.close}>
-            <Text style={[type.bodyMd, styles.closeText]}>とじる</Text>
+            <Text style={[type.bodyMd, styles.closeText]}>閉じる</Text>
           </Pressable>
         </View>
 
@@ -78,10 +79,10 @@ export default function AddScreen() {
         ) : null}
 
         <View style={styles.actions}>
-          <PillButton label="ほぞん する" onPress={save} />
+          <PillButton label="保存する" onPress={save} />
           {initial > 0 ? (
             <Pressable onPress={clear} accessibilityRole="button" style={styles.clearBtn}>
-              <Text style={[type.caption, styles.clearText]}>この月の入力をけす</Text>
+              <Text style={[type.caption, styles.clearText]}>この月の入力を削除</Text>
             </Pressable>
           ) : null}
         </View>

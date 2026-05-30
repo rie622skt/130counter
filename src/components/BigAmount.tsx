@@ -17,7 +17,7 @@ export function BigAmount({ amount, over }: Props) {
   return (
     <View style={styles.wrap}>
       <Text style={[type.bodyLg, styles.lead]}>
-        {over ? '壁をこえています' : 'あと'}
+        {over ? '壁を超えています' : 'あと'}
       </Text>
       <Text
         style={[type.displayXxl, { color: numberColor }]}
@@ -26,7 +26,7 @@ export function BigAmount({ amount, over }: Props) {
         {over ? `+${display}` : display}
       </Text>
       <Text style={[type.bodyLg, styles.lead]}>
-        {over ? 'オーバーしています' : '稼げます'}
+        {over ? 'オーバーした金額です' : '稼げます'}
       </Text>
     </View>
   );
