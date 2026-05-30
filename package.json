@@ -46,5 +46,8 @@
     "generate-icons": "node ./scripts/generate-icons.js",
     "lint": "expo lint"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
 }
